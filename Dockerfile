@@ -8,4 +8,6 @@ RUN apt-get -y install docker.io \
 
 RUN pip install boutiques pytest pyspark pybids
 
+RUN echo "if [ -e /var/run/docker.sock ]; then sudo chown circleci:circleci /var/run/docker.sock; fi" >> /home/circleci/.bashrc
+
 ENTRYPOINT ["pytest"]
