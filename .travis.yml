@@ -1,0 +1,8 @@
+sudo: required
+
+services:
+ - docker
+ 
+before_install:
+ - docker build -t simtool .
+ - docker run --rm=false -v /var/run/docker.sock:/var/run/docker.sock -v $PWD:$PWD -w $PWD simtool ./test
